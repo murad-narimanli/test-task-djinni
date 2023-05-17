@@ -227,7 +227,7 @@ const DbDesigner: React.FC<DbDesignerProps> = () => {
               <select
                 value={table.relationships.length > 0 ? table.relationships[0].targetTableId : ''}
                 onChange={(event) =>
-                  handleChangeRelationship(event, table.relationships[0].id, table.id)
+                  handleChangeRelationship(event, table.relationships[0]?.id, table.id)
                 }
               >
                 {tables
@@ -330,20 +330,20 @@ const DbDesigner: React.FC<DbDesignerProps> = () => {
             Add New
           </button>
           <button className="toolbar-button" onClick={handleZoomIn}>
-            -
+            +
           </button>
           <button className="toolbar-button" onClick={handleZoomOut}>
-            +
+            -
           </button>
           <select
             className="zoom-select"
             value={`${zoomLevel * 100}%`}
             onChange={(event) => handleZoomLevelChange(event)}
           >
+            <option value="125%">125%</option>
             <option value="100%">100%</option>
             <option value="80%">80%</option>
-            <option value="60%">60%</option>
-            <option value="40%">40%</option>
+            <option value="70%">70%</option>
           </select>
         </div>
       </div>
