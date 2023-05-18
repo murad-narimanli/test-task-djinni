@@ -1,4 +1,4 @@
-import DatabaseDesigner from "./FlowChart";
+import DatabaseDesigner from "./DbDesigner";
 
 function App() {
   return (

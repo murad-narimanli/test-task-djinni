@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './DbDesigner.css';
+import './DbDesigner.scss';
 
 type Table = {
   id: string;

@@ -1,0 +1,186 @@
+/* DbDesigner.scss */
+$body-bg-color: #f1f1f1;
+$header-bg-color: #333;
+$header-text-color: #fff;
+$toolbar-button-bg-color: #555;
+$toolbar-button-text-color: #fff;
+$select-bg-color: #fff;
+$select-text-color: #333;
+$select-border-color: #ccc;
+$table-bg-color: #fff;
+$table-border-color: #000;
+$table-padding: 8px;
+$table-cursor: move;
+$table-transition: transform 0.3s;
+$table-editing-bg-color: #f0f0f0;
+$input-border-color: #ccc;
+$button-bg-color: #f44336;
+$button-text-color: #fff;
+$edit-button-bg-color: #000;
+$relationship-line-color: #000;
+$save-button-bg-color: #000;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: $header-bg-color;
+  color: $header-text-color;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+
+  .toolbar-button {
+    padding: 8px 12px;
+    background-color: $toolbar-button-bg-color;
+    color: $toolbar-button-text-color;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.zoom-select, .table-display select {
+  padding: 8px;
+  background-color: $select-bg-color;
+  color: $select-text-color;
+  border: 1px solid $select-border-color;
+  cursor: pointer;
+}
+
+.table-display select {
+  padding: 4px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.designer {
+  border: 1px solid #ccc;
+  background-color: $body-bg-color;
+  overflow: auto;
+}
+
+.table {
+  position: absolute;
+  border: 1px solid $table-border-color;
+  background-color: $table-bg-color;
+  padding: $table-padding;
+  cursor: $table-cursor;
+  transition: $table-transition;
+
+  &.editing {
+    background-color: $table-editing-bg-color;
+  }
+
+  input {
+    width: 100%;
+    padding: 4px;
+    border: 1px solid $input-border-color;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+
+.add-relationship-button {
+  margin-top: 10px;
+  padding: 4px 8px;
+  background-color: $toolbar-button-bg-color;
+  color: $toolbar-button-text-color;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-button, .edit-button {
+  margin-top: 10px;
+  padding: 4px 8px;
+  background-color: $button-bg-color;
+  color: $button-text-color;
+  border: none;
+  cursor: pointer;
+
+  &.edit-button {
+    background: $edit-button-bg-color;
+    margin-left: 5px;
+  }
+}
+
+.relationship {
+  position: absolute;
+  z-index: -1;
+
+  .line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $relationship-line-color;
+    transform-origin: left center;
+  }
+}
+
+.table-editing {
+  padding-right: 10px;
+
+  .table-save-button {
+    margin-top: 10px;
+    width: 99px;
+    padding: 4px 8px;
+    background-color: $save-button-bg-color;
+    color: $button-text-color;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+// Inside the DbDesigner.scss file
+
+.multi-select {
+  position: relative;
+
+  select {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    appearance: none;
+
+    &[multiple] {
+      height: auto;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -3px;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #555 transparent transparent transparent;
+    pointer-events: none;
+  }
+
+  select:focus {
+    &::before {
+      border-color: #aaa transparent transparent transparent;
+    }
+  }
+}
+
